@@ -6,14 +6,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import static org.interview.homeworkassignment.TransactionConstants.*;
-
 @RestController
 @EnableAutoConfiguration
 public class TransactionPointsCalculator {
-    @RequestMapping(TRANSACTION_POINTS_REQUEST)
+    @RequestMapping("/transaction-points")
     @ResponseBody
-    public int getPointsEarnedFromTransaction(@RequestParam(TRANSACTION_POINTS_AMOUNT) int amount) {
+    public int getPointsEarnedFromTransaction(@RequestParam("transactionAmount") int amount) {
         return getPointsBetweenFiftyAndOneHundred(amount) + getPointsPastOneHundred(amount);
     }
 
